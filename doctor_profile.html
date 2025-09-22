@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #DDF4E7;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background: #b2e4c8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 8%;
+        }
+        
+        .profile-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            margin: 10px 0;
+        }
+        
+        p {
+            color: #555;
+        }
+        
+        .availability {
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .availability h3 {
+            margin-bottom: 10px;
+        }
+        
+        .slot {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 5px;
+            border: 1px solid #11683b;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #11683b;
+        }
+        
+        .slot:hover {
+            background: #11683b;
+            color: white;
+        }
+        
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 8px 15px;
+            background: #555;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-container">
+
+        <h2 id="doctor-name">Doctor Name</h2>
+        <p id="doctor-specialization">Specialization</p>
+        <p id="doctor-bio">Short bio about the doctor will be shown here.</p>
+
+        <div class="availability">
+            <h3>Available Slots:</h3>
+            <div id="slots-container">
+                <!-- Slots will load here -->
+            </div>
+        </div>
+
+        <a href="doctors.html" class="back-btn">← Back to Doctors</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const doctorId = urlParams.get("id");
+
+
+        const doctorData = {
+            1: {
+                name: "Dr. John Smith",
+                specialization: "Cardiologist",
+                bio: "Expert in heart care with 10 years of experience.",
+
+                slots: ["10:00 AM", "11:30 AM", "2:00 PM"]
+            },
+            2: {
+                name: "Dr. Sarah Johnson",
+                specialization: "Dermatologist",
+                bio: "Specialist in skin care and treatments.",
+
+                slots: ["9:30 AM", "12:00 PM", "3:30 PM"]
+            },
+            3: {
+                name: "Dr. Michael Lee",
+                specialization: "Orthopedic",
+                bio: "Handles bone, joint, and muscle issues.",
+
+                slots: ["10:15 AM", "1:00 PM", "4:00 PM"]
+            },
+            4: {
+                name: "Dr. Emma Brown",
+                specialization: "Pediatrician",
+                bio: "Child health specialist with friendly care.",
+
+                slots: ["9:00 AM", "11:00 AM", "2:45 PM"]
+            },
+            5: {
+                name: "Dr. William Davis",
+                specialization: "Neurologist",
+                bio: "Expert in brain and nervous system disorders.",
+
+                slots: ["10:45 AM", "12:30 PM", "4:15 PM"]
+            },
+            6: {
+                name: "Dr. Olivia Miller",
+                specialization: "Psychiatrist",
+                bio: "Provides mental health support and counseling.",
+
+                slots: ["9:15 AM", "1:30 PM", "3:00 PM"]
+            },
+            7: {
+                name: "Dr. James Wilson",
+                specialization: "General Physician",
+                bio: "Handles general health and primary care.",
+
+                slots: ["8:45 AM", "12:15 PM", "5:00 PM"]
+            },
+            8: {
+                name: "Dr. Sophia Garcia",
+                specialization: "Ophthalmologist",
+                bio: "Eye care specialist with 7 years of experience.",
+
+                slots: ["9:45 AM", "11:45 AM", "3:15 PM"]
+            },
+            9: {
+                name: "Dr. Daniel Martinez",
+                specialization: "Oncologist",
+                bio: "Cancer care and treatment specialist.",
+
+                slots: ["10:30 AM", "1:45 PM", "4:30 PM"]
+            },
+            10: {
+                name: "Dr. Isabella Anderson",
+                specialization: "ENT Specialist",
+                bio: "Expert in ear, nose, and throat treatments.",
+
+                slots: ["8:30 AM", "11:30 AM", "2:30 PM"]
+            },
+        };
+
+
+        const doctor = doctorData[doctorId];
+        if (doctor) {
+            document.getElementById("doctor-name").textContent = doctor.name;
+            document.getElementById("doctor-specialization").textContent = doctor.specialization;
+            document.getElementById("doctor-bio").textContent = doctor.bio;
+
+
+
+            const slotsContainer = document.getElementById("slots-container");
+            doctor.slots.forEach(slot => {
+                const div = document.createElement("div");
+                div.className = "slot";
+                div.textContent = slot;
+                div.onclick = () => bookAppointment(doctorId, slot);
+                slotsContainer.appendChild(div);
+            });
+        } else {
+            document.getElementById("doctor-name").textContent = "Doctor not found";
+        }
+
+
+        function bookAppointment(docId, slot) {
+            alert("Appointment booked with Doctor ID " + docId + " at " + slot);
+        }
+    </script>
+
+</body>
+
+</html>

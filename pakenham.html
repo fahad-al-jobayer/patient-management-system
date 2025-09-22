@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakenham Hospital</title>
+    <link rel="stylesheet" href="pakenham.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <div class="navbar-top">
+            <div class="logo"><img src="logo.png" alt="Hospital logo"></div>
+            <div class="auth-buttons">
+                <button class="register" onclick="location.href='register.html'">Register</button>
+
+                <button class="login" onclick="location.href='login.html'">Login</button>
+            </div>
+        </div>
+
+
+        <div class="navbar-bottom">
+            <a href="pakenham.html">Home</a>
+            <a href="doctors.html">Doctors List</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#" id="help-link">Help</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="box">
+            <p style="font-size: 60px; font-weight: 500;">Ready</p>
+            <p style="font-size: 60px; font-weight: 500;">to feel better?</p>
+
+
+
+            <p class="line">
+                <span class="inside">Book your appointment with</span>
+                <span class="outside">Pakenham Hospital</span>
+            </p>
+            <p style="font-size: 60px; font-weight: 500;margin-top: 80px;">today!</p>
+            <button class="booking" onclick="location.href='doctors.html'">Book Appointment</button>
+        </div>
+        <img src="img 1.png" alt="Sample" class="image">
+    </div>
+
+    <div class="lastpart">
+        <div class="lastbox">
+            <div class="p1">
+                <p>
+                    In an emergency, call 000 <br> Medical Centre Phone: (03) 9594 6666 <br> Children’s Hospital Phone: (03) 8572 3000 <br> Victorian Heart Hospital Phone: (03) 7511 1111
+                </p>
+                <h4>© Copyright 2025 Pakenham Hospital</h4>
+            </div>
+            <p class="lastParagraph">Monash Health acknowledges the Bunurong/Boonwurrung and Wurundjeri Woi-wurrung peoples, the Traditional Custodians and Owners of the lands where our healthcare facilities are located and programs operate. We pay our respects to their culture
+                and their Elders past, present and future.
+                <br> We are committed to creating a safe and welcoming environment that embraces all backgrounds, cultures and sexualities, genders and abilities.</p>
+        </div>
+        <div id="chat-widget" style="display:none;">
+            <div id="chat-header">
+                <span>Assistant</span>
+                <button id="close-btn">X</button>
+            </div>
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your message..." />
+            <button id="send-btn">Send</button>
+        </div>
+
+
+
+
+        <script src="https://js.puter.com/v2/"></script>
+
+        <script>
+            const helpLink = document.getElementById("help-link");
+            const chatWidget = document.getElementById("chat-widget");
+            const closeBtn = document.getElementById("close-btn");
+            const chatBox = document.getElementById("chat-box");
+            const userInput = document.getElementById("user-input");
+            const sendBtn = document.getElementById("send-btn");
+
+
+            helpLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                chatWidget.style.display = "flex";
+                appendMessage("bot", "Hello! I am your virtual assistant. How can I help you today?");
+            });
+
+
+            closeBtn.addEventListener("click", () => chatWidget.style.display = "none");
+
+
+            sendBtn.addEventListener("click", async() => {
+                const message = userInput.value.trim();
+                if (!message) return;
+
+                appendMessage("user", message);
+                userInput.value = "";
+
+                const response = await getAIResponse(message);
+                appendMessage("bot", response);
+            });
+
+            function appendMessage(sender, text) {
+                const msgDiv = document.createElement("div");
+                msgDiv.className = sender === "user" ? "user-msg" : "bot-msg";
+                msgDiv.textContent = text;
+                chatBox.appendChild(msgDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+
+            async function getAIResponse(message) {
+                try {
+                    const res = await puter.ai.chat(message, {
+                        model: 'google/gemini-flash-1.5-8b',
+                    });
+                    return res.message.content;
+                } catch (err) {
+                    return "Sorry, I cannot respond right now.";
+                }
+            }
+        </script>
+
+
+
+</body>
+
+</html>

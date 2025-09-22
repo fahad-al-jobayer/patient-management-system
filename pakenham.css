@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #DDF4E7;
+}
+
+.navbar {
+    border-bottom: 2px solid #DDF4E7;
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    border-radius: 8%;
+}
+
+.auth-buttons button {
+    margin-left: 30px;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.auth-buttons .register {
+    background-color: #67C090;
+    color: white;
+}
+
+.auth-buttons .register:hover {
+    background-color: #03982d;
+}
+
+.auth-buttons .login {
+    margin-right: 40px;
+    background-color: #124170;
+    color: white;
+}
+
+.auth-buttons .login:hover {
+    background-color: #A19AD3;
+}
+
+.navbar-bottom {
+    display: flex;
+    justify-content: right;
+    background-color: #DDF4E7;
+    padding: 10px 22px;
+}
+
+.navbar-bottom a {
+    margin: 0 50px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.navbar-bottom a:hover {
+    color: #67C090;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 50px;
+    gap: 60px;
+    margin-left: 250px;
+}
+
+.box {
+    background-color: #67C090;
+    border: 2px solid #DDF4E7;
+    border-radius: 30px;
+    width: 550px;
+    padding: 40px 60px;
+    position: relative;
+    overflow: visible;
+    box-sizing: border-box;
+    height: 550px;
+}
+
+.box p {
+    margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.image {
+    width: 700px;
+    height: 700px;
+    border-radius: 10px;
+}
+
+.line {
+    font-size: 40px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.inside {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 50px;
+}
+
+.outside {
+    position: absolute;
+    font-size: 70px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.box button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+    color: black;
+}
+
+.box .booking {
+    background-color: #DDF4E7;
+}
+
+.booking:hover {
+    background-color: #033163;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.lastbox {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px;
+    background-color: #67C090;
+}
+
+.p1 {
+    flex: 1;
+}
+
+.p1 h4 {
+    margin-top: 15px;
+    color: #021a34;
+    font-size: 18px;
+}
+
+.lastParagraph {
+    flex: 2;
+    text-align: justify;
+}
+
+#chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #d9e2ec;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#chat-header {
+    background-color: #033163;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #eee;
+}
+
+#user-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: calc(100% - 70px);
+    margin: 5px;
+}
+
+#send-btn {
+    padding: 8px;
+    margin: 5px;
+    background-color: #033163;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.user-msg {
+    color: orangered;
+    margin: 5px 0;
+}
+
+.bot-msg {
+    color: green;
+    margin: 5px 0;
+}
