@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <h2>Welcome, <span id="doctorName"></span></h2>
+
+        <section id="profile">
+            <h3>My Profile</h3>
+            <p>Name: <span id="profileName"></span></p>
+            <p>Specialization: <span id="profileSpecialization"></span></p>
+        </section>
+
+        <section id="appointments">
+            <h3>Booking Schedule</h3>
+            <table border="1" id="appointmentsTable">
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
